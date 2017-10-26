@@ -1,0 +1,15 @@
+{
+  "name": "deployme-ecs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Peter Elger <peter.elger@nearform.com>",
+  "license": "MIT",
+  "dependencies": {
+    "aws-sdk": "^2.140.0",
+    "lodash": "^4.17.4"
+  }
+}

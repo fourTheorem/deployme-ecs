@@ -1,0 +1,12 @@
+#!/bin/bash
+export SYSTEM_NAME=micro
+export SERVICE_NAME=webapp
+export SERVICE_ENV=dev
+export AWS_ACCOUNT_ID=644092887781
+export AWS_REGION=eu-west-1
+export IMAGE_REPO_NAME=webapp
+export SERVICE_PLACEMENT=ext
+export CODEBUILD_RESOLVED_SOURCE_VERSION=e56d01eb699b97704431c38f6654258283689d2f
+
+node index.js
+
