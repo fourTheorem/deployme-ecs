@@ -21,7 +21,7 @@ module.exports = function (AWS, service) {
         if (err) return cb(err)
 
         var cdefs = cloneDeep(data.taskDefinition.containerDefinitions)
-        cdefs[0].image = `${service.awsAccountId}.dkr.ecr.${service.awsRegion}.amazonaws.com/${service.imageRepoName}:${service.codeBuildResolvedSourceVersion}`
+        cdefs[0].image = `${service.awsAccountId}.dkr.ecr.${service.awsRegion}.amazonaws.com/${service.imageRepoName}:${service.codebuildResolvedSourceVersion}`
 
         ecs.registerTaskDefinition({family: tdName, containerDefinitions: cdefs}, function (err, data) {
           if (err) return cb(err)
