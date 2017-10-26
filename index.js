@@ -8,7 +8,7 @@ var service = {
   awsRegion: process.env.AWS_REGION,
   imageRepoName: process.env.IMAGE_REPO_NAME,
   placement: process.env.SERVICE_PLACEMENT,
-  codebuildResolvedSouceVersion: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION
+  codebuildResolvedSourceVersion: process.env.CODEBUILD_RESOLVED_SOURCE_VERSION
 }
 
 const AWS = require('aws-sdk')
