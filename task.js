@@ -3,7 +3,7 @@
 const lodash = require('lodash')
 const cloneDeep = lodash.cloneDeep
 const findIndex = lodash.findIndex
-const merge = lodash.merge
+const mergeWith = lodash.mergeWith
 
 module.exports = function (AWS, service) {
   var ecs = new AWS.ECS({apiVersion: '2014-11-13'})
@@ -52,7 +52,11 @@ module.exports = function (AWS, service) {
  * Merge container definitions including array properties with object entries
  */
 function mergeDef (target, src) {
-  const merged = merge(target, src)
+  const merged = mergeWith(target, src, function (to, from) {
+    if (Array.isArray(to)) {
+      return to.concat(from)
+    }
+  })
   removeReplacedElements(merged, src, 'environment', 'name')
   return merged
 }
