@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 'use strict'
 
 var service = {
@@ -15,8 +16,8 @@ const AWS = require('aws-sdk')
 AWS.config.update({region: service.awsRegion})
 const task = require('./task')(AWS, service)
 const svc = require('./service')(AWS, service)
-
-task.cloneAndModify(function (err, taskArns) {
+const containerConfig = require('./config')(service)
+task.cloneAndModify(containerConfig, function (err, taskArns) {
   if (err) { return console.log(err) }
   svc.updateTaskDef(taskArns.newArn, function (err, svcArn) {
     if (err) { return console.log(err) }
